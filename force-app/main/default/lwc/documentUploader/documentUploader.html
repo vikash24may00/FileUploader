@@ -1,0 +1,23 @@
+<!--
+  @description       : 
+  @author            : VIKASH MUNDARI
+  @group             : 
+  @last modified on  : 06-12-2024
+  @last modified by  : VIKASH MUNDARI
+-->
+
+
+<template>
+    <lightning-card title="Upload Document" icon-name="utility:upload">
+        <div class="slds-m-around_medium">
+            <lightning-input type="file" label="Choose File" onchange={handleFileChange}></lightning-input>
+            <br />
+            <template if:true={fileName}>
+                <p>Selected File: {fileName}</p>
+            </template>
+            
+            <br />
+            <lightning-button label="Upload" onclick={handleUpload} variant="brand"></lightning-button>
+        </div>
+    </lightning-card>
+</template>

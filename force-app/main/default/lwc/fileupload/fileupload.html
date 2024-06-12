@@ -1,0 +1,30 @@
+<!--
+  @description       : File Uploader component to upload and display files related to a record
+  @last modified on  : 06-10-2024
+  @last modified by  : VIKASH MUNDARI
+-->
+<template>
+    <!-- Lightning card to hold the file uploader component -->
+    <lightning-card title="File Uploader" icon-name="custom:custom19">
+        
+        <!-- Lightning file upload component for uploading files -->
+        <lightning-file-upload
+            label="Upload File" 
+            record-id={recordId} 
+            accept=".pdf,.png,.doc" 
+            onuploadfinished={handleUploadFinished}> 
+        </lightning-file-upload>
+        
+        <!-- Conditional rendering: Show the datatable only if there are files -->
+        <template if:true={files.length}>
+            <!-- Lightning datatable to display the list of files -->
+            <lightning-datatable
+                data={files} 
+                columns={columns} 
+                key-field="Id"
+                onrowaction={handleRowAction}> <!-- Event handler for row actions (e.g., view button) -->
+            </lightning-datatable>
+        </template>
+        
+    </lightning-card>
+</template>
